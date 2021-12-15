@@ -6,17 +6,23 @@
 </template>
 
 <script>
-import { VueMathjax } from 'vue-mathjax'
+import {VueMathjax} from 'vue-mathjax'
+
 export default {
   components: {
     'vue-mathjax': VueMathjax
   },
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
       formula: '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$',
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  mounted() {
+    let recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML')
+    document.head.appendChild(recaptchaScript)
   }
 }
 </script>
@@ -27,14 +33,17 @@ h1,
 h2 {
   font-weight: normal;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
