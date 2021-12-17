@@ -2,17 +2,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import App from "./App";
-import Vuetify from "vuetify";
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import vuetify from '@/plugins/vuetify' // path to vuetify export
+import Plotly from 'plotly.js-dist';
+
 Vue.config.productionTip = false;
-Vue.use(Vuetify);
-Vue.use(ElementUI);
+
+Vue.use(vuetify);
+Vue.use(Plotly);
+
 /* eslint-disable no-new */
 new Vue({
-  vuetify : new Vuetify(),
+  vuetify,
   el: "#app",
-  components: { App },
-  template: "<App/>",
+  // components: { App },
+  // template: "<App/>",
   render: h => h(App)
 });
